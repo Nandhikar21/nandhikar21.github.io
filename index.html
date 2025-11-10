@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nandhikar | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/scrollreveal"></script>
 </head>
+
 <body>
-  <!-- Navigation -->
+  <!-- Header -->
   <header>
     <nav class="navbar">
       <h1 class="logo">NANDHIKAR</h1>
@@ -21,7 +25,7 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
       <h2>Hi, I'm <span class="highlight">Nandhikar</span></h2>
@@ -30,56 +34,65 @@
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About -->
   <section id="about" class="section about">
     <h2>About Me</h2>
     <p>
-      I'm a Civil Engineer passionate about combining AI and Engineering to develop sustainable, intelligent infrastructure systems. 
-      My work spans Machine Learning in Structural Health Monitoring, Pavement Temperature Analysis, and Digital Twin development.
+      I’m a Civil Engineer passionate about merging Artificial Intelligence with Civil Engineering to build 
+      sustainable, intelligent infrastructure. My research interests include AI-based Structural Health Monitoring, 
+      Pavement Temperature Analysis, and Digital Twin Development for resilient cities.
     </p>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Projects -->
   <section id="projects" class="section projects">
     <h2>Projects</h2>
     <div class="project-grid">
       <div class="project-card">
         <h3>AI-Based Structural Health Monitoring</h3>
-        <p>Developed ML models to detect damage in bridges under environmental variations using real sensor data.</p>
+        <p>Developed ML models to detect bridge damage under varying temperatures and environmental conditions using open SHM datasets.</p>
       </div>
       <div class="project-card">
         <h3>Obesity Level Prediction</h3>
-        <p>Built an XGBoost model predicting obesity levels based on user habits. Deployed using Flask and XAMPP.</p>
+        <p>Created an ML model using XGBoost for predicting obesity levels. Built a web app with Flask and XAMPP for real-time predictions.</p>
       </div>
       <div class="project-card">
         <h3>TiO₂ Pavement Cooling Study</h3>
-        <p>Analyzed the cooling effects of TiO₂-coated pavements to mitigate urban heat using synthetic datasets.</p>
+        <p>Simulated and analyzed cooling effects of TiO₂-coated pavements for mitigating urban heat islands through synthetic datasets.</p>
       </div>
     </div>
   </section>
 
-  <!-- Research Section -->
+  <!-- Research -->
   <section id="research" class="section research">
     <h2>Research & Publications</h2>
-    <ul>
-      <li><strong>AI-Enhanced Digital Twin for SHM:</strong> Ongoing study on ML-based structural monitoring.</li>
-      <li><strong>Sustainable Pavement Materials:</strong> Evaluating eco-friendly composites for urban applications.</li>
-    </ul>
+    <div class="research-container">
+      <div class="research-card">
+        <h3>AI-Enhanced Digital Twin for SHM</h3>
+        <p>Ongoing research on AI-driven structural monitoring frameworks that integrate environmental variability into digital twin models.</p>
+      </div>
+      <div class="research-card">
+        <h3>Sustainable Civil Materials</h3>
+        <p>Investigating eco-friendly materials like sugarcane straw ash and TiO₂ coatings for resilient infrastructure systems.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact" class="section contact">
     <h2>Contact</h2>
+    <p>Let’s connect for research, collaboration, or ideas!</p>
     <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-    <p>
-      <a href="https://github.com/nandhikar" target="_blank">GitHub</a> |
+    <div class="socials">
+      <a href="https://github.com/nandhikar" target="_blank">GitHub</a>
       <a href="https://linkedin.com/in/your-link" target="_blank">LinkedIn</a>
-    </p>
+      <a href="mailto:your.email@example.com">Email</a>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Nandhikar. All rights reserved.</p>
+    <p>© 2025 Nandhikar. Built with ❤️ using HTML, CSS & JS.</p>
   </footer>
 
   <script src="script.js"></script>
