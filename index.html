@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body>
-  <!-- Header -->
-  <header>
-    <nav class="navbar">
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
       <h1 class="logo">NANDHIKAR</h1>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -22,15 +22,15 @@
         <li><a href="#research">Research</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-content">
-      <h2>Hi, I'm <span class="highlight">Nandhikar</span></h2>
-      <p>Fresher Civil Engineer | AIML Minor | Research in Digital Twins & Sustainable Infrastructure</p>
-      <a href="#projects" class="btn">View My Work</a>
+      <h2>Hi, I'm <span class="highlight">Nandhikar</span> 👋</h2>
+      <p>Fresher Civil Engineer | AIML Minor | Researching Digital Twins & Sustainable Infrastructure</p>
+      <a href="#projects" class="btn">Explore My Work</a>
     </div>
   </section>
 
@@ -38,27 +38,37 @@
   <section id="about" class="section about">
     <h2>About Me</h2>
     <p>
-      I’m a Civil Engineer passionate about merging Artificial Intelligence with Civil Engineering to build 
-      sustainable, intelligent infrastructure. My research interests include AI-based Structural Health Monitoring, 
-      Pavement Temperature Analysis, and Digital Twin Development for resilient cities.
+      I’m a Civil Engineer passionate about applying AI in Civil and Structural Engineering to create smart, sustainable infrastructure. 
+      My research integrates Digital Twins, Machine Learning, and Structural Health Monitoring (SHM) for real-world applications.
     </p>
   </section>
 
   <!-- Projects -->
   <section id="projects" class="section projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
+    <h2>Highlighted Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🏗️</div>
         <h3>AI-Based Structural Health Monitoring</h3>
-        <p>Developed ML models to detect bridge damage under varying temperatures and environmental conditions using open SHM datasets.</p>
+        <p>Developed ML models to detect bridge damage under environmental variations using sensor datasets.</p>
       </div>
-      <div class="project-card">
+
+      <div class="card">
+        <div class="card-icon">⚙️</div>
         <h3>Obesity Level Prediction</h3>
-        <p>Created an ML model using XGBoost for predicting obesity levels. Built a web app with Flask and XAMPP for real-time predictions.</p>
+        <p>Created an XGBoost model predicting obesity levels based on lifestyle data; deployed via Flask web app.</p>
       </div>
-      <div class="project-card">
+
+      <div class="card">
+        <div class="card-icon">🌇</div>
         <h3>TiO₂ Pavement Cooling Study</h3>
-        <p>Simulated and analyzed cooling effects of TiO₂-coated pavements for mitigating urban heat islands through synthetic datasets.</p>
+        <p>Modeled temperature reduction effects of TiO₂-coated pavements to mitigate urban heat islands.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <h3>Pusa Decomposer for Waste Management</h3>
+        <p>Studied bio-decomposition processes using Pusa Decomposer for sustainable solid waste management.</p>
       </div>
     </div>
   </section>
@@ -66,33 +76,31 @@
   <!-- Research -->
   <section id="research" class="section research">
     <h2>Research & Publications</h2>
-    <div class="research-container">
+    <div class="research-grid">
       <div class="research-card">
         <h3>AI-Enhanced Digital Twin for SHM</h3>
-        <p>Ongoing research on AI-driven structural monitoring frameworks that integrate environmental variability into digital twin models.</p>
+        <p>Exploring hybrid ML–physics models to predict and monitor structural health under environmental changes.</p>
       </div>
       <div class="research-card">
-        <h3>Sustainable Civil Materials</h3>
-        <p>Investigating eco-friendly materials like sugarcane straw ash and TiO₂ coatings for resilient infrastructure systems.</p>
+        <h3>Sustainable Pavement Materials</h3>
+        <p>Investigating eco-friendly pavement coatings and bio-based materials for climate-resilient infrastructure.</p>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="section contact">
-    <h2>Contact</h2>
-    <p>Let’s connect for research, collaboration, or ideas!</p>
+    <h2>Get in Touch</h2>
     <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-    <div class="socials">
+    <div class="social-links">
       <a href="https://github.com/nandhikar" target="_blank">GitHub</a>
       <a href="https://linkedin.com/in/your-link" target="_blank">LinkedIn</a>
-      <a href="mailto:your.email@example.com">Email</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Nandhikar. Built with ❤️ using HTML, CSS & JS.</p>
+    <p>© 2025 Nandhikar | Designed with ❤️ using HTML, CSS & JS</p>
   </footer>
 
   <script src="script.js"></script>
