@@ -4,31 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nandhikar | Portfolio</title>
-  <style>
-    body {font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9;}
-    h1 {color: #333;}
-    .section {margin-bottom: 40px;}
-    a {color: #007acc;}
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
-  <h1>Hi, I'm Nandhikar 👋</h1>
-  <p>Fresher Civil Engineer | AIML Minor | Research in Digital Twins & Sustainable Infrastructure</p>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">NANDHIKAR</h1>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="section">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Hi, I'm <span class="highlight">Nandhikar</span></h2>
+      <p>Fresher Civil Engineer | AIML Minor | Research in Digital Twins & Sustainable Infrastructure</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <h2>About Me</h2>
+    <p>
+      I'm a Civil Engineer passionate about combining AI and Engineering to develop sustainable, intelligent infrastructure systems. 
+      My work spans Machine Learning in Structural Health Monitoring, Pavement Temperature Analysis, and Digital Twin development.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section projects">
     <h2>Projects</h2>
-    <ul>
-      <li>AI-based Structural Health Monitoring</li>
-      <li>Obesity Level Prediction using ML</li>
-      <li>TiO₂ Pavement Cooling Study</li>
-    </ul>
-  </div>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>AI-Based Structural Health Monitoring</h3>
+        <p>Developed ML models to detect damage in bridges under environmental variations using real sensor data.</p>
+      </div>
+      <div class="project-card">
+        <h3>Obesity Level Prediction</h3>
+        <p>Built an XGBoost model predicting obesity levels based on user habits. Deployed using Flask and XAMPP.</p>
+      </div>
+      <div class="project-card">
+        <h3>TiO₂ Pavement Cooling Study</h3>
+        <p>Analyzed the cooling effects of TiO₂-coated pavements to mitigate urban heat using synthetic datasets.</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="section">
+  <!-- Research Section -->
+  <section id="research" class="section research">
+    <h2>Research & Publications</h2>
+    <ul>
+      <li><strong>AI-Enhanced Digital Twin for SHM:</strong> Ongoing study on ML-based structural monitoring.</li>
+      <li><strong>Sustainable Pavement Materials:</strong> Evaluating eco-friendly composites for urban applications.</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
     <h2>Contact</h2>
-    <p>Email: your.email@example.com</p>
-    <p><a href="https://github.com/nandhikar">GitHub</a> | 
-       <a href="https://linkedin.com/in/...">LinkedIn</a></p>
-  </div>
+    <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    <p>
+      <a href="https://github.com/nandhikar" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com/in/your-link" target="_blank">LinkedIn</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Nandhikar. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
