@@ -2,311 +2,381 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Nandhikar | Civil Engineer & AI Researcher</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Nandhikar - Civil Engineer & AI Researcher. Portfolio showcasing projects on digital twins, SHM, and sustainable infrastructure.">
+  <meta property="og:title" content="Nandhikar Portfolio">
+  <meta property="og:description" content="Civil Engineering, AI, Machine Learning Projects and Research">
+  <meta property="og:image" content="your-avatar-url.png">
+  <meta name="theme-color" content="#1e3a8a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script src="https://unpkg.com/scrollreveal"></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ========= BASE STYLES ========= */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
-      color: #0f172a;
-      overflow-x: hidden;
-      line-height: 1.6; /* Improved readability */
+    :root {
+      --primary: #38bdf8;
+      --secondary: #0ea5e9;
+      --dark: #0f172a;
+      --accent: #67e8f9;
+      --light-bg: #f0f9ff;
+      --dark-bg: #1e293b;
+      --card-bg: rgba(255,255,255,0.25);
+      --card-bg-dark: rgba(30,41,59,0.89);
+      --radius: 20px;
+      --nav-height: 65px;
+      --transition: 0.3s cubic-bezier(.4,2,.3,1);
     }
-    a { text-decoration: none; color: inherit; }
-
-    /* ========= NAVBAR ========= */
+    body {
+      font-family: 'Poppins',sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg,var(--light-bg),#e0f2fe 90%);
+      color: var(--dark);
+      min-height: 100vh;
+      transition: background .25s;
+      line-height: 1.7;
+    }
+    /* Dark mode */
+    body.dark-mode {
+      background: linear-gradient(135deg, var(--dark-bg), #1e293b);
+      color: #f8fafc;
+    }
     header {
       position: sticky;
       top: 0;
-      background: rgba(15, 23, 42, 0.95); /* Slightly darker for better contrast */
+      height: var(--nav-height);
+      background: rgba(15,23,42,0.98);
       backdrop-filter: blur(10px);
-      z-index: 100;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+      z-index: 999;
+      transition: box-shadow var(--transition);
     }
     .navbar {
-      max-width: 1200px; /* Max width for large screens */
-      width: 90%;
+      max-width: 1200px;
+      width: 92%;
       margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 0;
-      color: white;
+      height: var(--nav-height);
     }
     .logo {
-      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
       font-weight: 700;
+      font-size: 1.4rem;
       letter-spacing: 1px;
+      color: var(--primary);
+      transition: font-size var(--transition);
+    }
+    .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      margin-right: 12px;
+      border: 2px solid var(--primary);
+      object-fit: cover;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(56,189,248,0.12);
     }
     .nav-links {
       display: flex;
-      gap: 25px;
-      list-style: none;
+      gap: 28px;
+      list-style:none;
+      transition: none;
     }
     .nav-links a {
-      color: white;
+      color: #fff;
       font-weight: 500;
-      transition: color .3s;
+      font-size: 1.06rem;
+      padding: 5px 13px;
+      border-radius:10px;
+      transition: background var(--transition), color var(--transition);
     }
-    .nav-links a:hover { color: #38bdf8; }
-    
-    /* Mobile Menu Toggle */
+    .nav-links a:focus, .nav-links a:hover { background: var(--primary); color: var(--dark); outline: none;}
     .menu-toggle {
       display: none;
-      font-size: 1.5rem;
+      font-size: 2rem;
+      color: var(--primary);
       cursor: pointer;
+      background: none;
+      border: none;
+      transition: color var(--transition);
     }
-
-    /* ========= HERO ========= */
+    .dark-toggle {
+      margin-left: 18px;
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 1.55rem;
+      background: none;
+      border: none;
+      transition: color var(--transition);
+    }
+    /* Hero Section */
     .hero {
-      height: 100vh;
-      min-height: 600px; /* Ensure a minimum height on very small screens */
-      background: radial-gradient(circle at top right, #1e3a8a, #0f172a);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 20px;
+      min-height: 530px;
+      background: radial-gradient(circle at top right,#1e3a8a,#0f172a 100%);
+      color: #fff;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center;
+      padding: 55px 20px 0 20px;
+      position:relative;
+      overflow:hidden;
     }
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem); /* Responsive font size */
-      background: linear-gradient(to right, #38bdf8, #67e8f9);
-      -webkit-background-clip: text;
-      color: transparent;
-      margin-bottom: 10px;
-      line-height: 1.2;
+      font-size: clamp(2.2rem,7vw,4rem);
+      background: linear-gradient(to right,var(--primary),var(--accent));
+      -webkit-background-clip:text; color:transparent;
     }
-    .hero p { 
-      max-width: 650px; 
-      font-size: clamp(1rem, 2vw, 1.15rem); /* Responsive font size */
-      padding: 0 10px;
+    .hero p {
+      max-width: 560px;
+      font-size: clamp(1.08rem,2vw,1.21rem);
+      margin: 18px auto 0;
     }
-    .btn {
-      background: #38bdf8;
-      padding: 12px 28px;
-      color: white;
-      border-radius: 30px;
+    .cta-btn {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      display: none; /* shows only on mobile via media query */
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      box-shadow: 0 4px 16px rgba(56,189,248,0.18);
       font-weight: 600;
-      display: inline-block;
-      margin-top: 25px;
-      transition: all .3s;
+      padding: 15px 28px;
+      font-size: 1.08rem;
+      cursor: pointer;
+      z-index: 999;
+      transition: filter .22s;
+      filter: drop-shadow(0 6px 20px rgba(56,189,248,0.22));
     }
-    .btn:hover { background: #0ea5e9; transform: scale(1.05); }
-
-    /* ========= SECTION BASE ========= */
+    .cta-btn:active { filter: brightness(0.93);}
+    /* Section base */
     section {
       max-width: 1200px;
-      width: 90%;
-      margin: 80px auto; /* Reduced margin for mobile */
-      text-align: center;
-      padding: 20px 0;
+      width: 92%;
+      margin: 82px auto;
+      text-align:center;
+      padding: 18px 0;
     }
     section h2 {
-      font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive font size */
-      color: #0f172a;
-      margin-bottom: 30px;
-      position: relative;
-      display: inline-block;
+      font-size: clamp(1.55rem,4vw,2.4rem);
+      color: var(--dark);
+      margin-bottom: 32px;
     }
+    section h2 i { margin-right: 9px; color: var(--primary);}
     section h2::after {
-      content: "";
-      width: 60px;
-      height: 4px;
-      background: #38bdf8;
-      display: block;
-      margin: 8px auto 0;
-      border-radius: 2px;
+      content:"";
+      width:52px; height:3.5px; background:var(--primary);
+      display:block; margin:7px auto 0; border-radius:3px;
     }
-    #about p { max-width: 800px; margin: 0 auto; padding: 0 10px; }
+    body.dark-mode section h2 { color: #f9fafb;}
+    body.dark-mode section h2::after { background: var(--accent);}
+    #about p { max-width:830px; margin:0 auto; padding:0 10px;}
 
-    /* ========= PROJECTS ========= */
+    /* Cards Grid */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px; /* Reduced gap for mobile, will scale up */
-      margin-top: 40px;
+      grid-template-columns: repeat(auto-fit,minmax(265px,1fr));
+      gap:22px;
+      margin-top:37px;
+      width:100%;
     }
     .card {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
+      background: var(--card-bg);
+      border-radius: var(--radius);
       padding: 25px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-      transition: all .4s ease;
-      text-align: left; /* Align card content left */
+      text-align:left;
+      box-shadow: 0 5px 25px rgba(30,41,59,0.11);
+      transition: transform .36s cubic-bezier(.2,1.25,.22,1), box-shadow .28s;
+      position:relative;
+      overflow:hidden;
     }
     .card:hover {
-      transform: translateY(-8px); /* Slightly reduced lift */
-      background: rgba(255, 255, 255, 0.3);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      transform: translateY(-8px) scale(1.03) rotate(-0.5deg);
+      box-shadow: 0 20px 38px rgba(30,41,59,0.19);
+      background: linear-gradient(120deg,#e0f7fa 75%, var(--accent) 100%);
     }
-    .card-icon { 
-      font-size: 2.2rem; 
-      margin-bottom: 15px; 
-      color: #1e3a8a; /* Color the icon */
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--primary);
     }
-    .card h3 { color: #0f172a; margin-bottom: 8px; font-size: 1.15rem; }
-
-    /* ========= PUBLICATIONS ========= */
-    .pub-list {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-    }
+    .card h3 { font-size: 1.14rem; color: var(--dark); margin-bottom:8px;}
+    body.dark-mode .card { background: var(--card-bg-dark); color: #f9fafb;}
+    body.dark-mode .card h3 { color:#67e8f9;}
+    /* Publications List */
+    .pub-list { max-width:880px; margin:0 auto; text-align:left;}
     .pub-item {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 15px; /* Reduced margin */
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: all .3s ease;
+      background:#fff;
+      border-radius:14px;
+      box-shadow: 0 5px 14px rgba(30,41,59,0.11);
+      margin-bottom:13px; padding: 20px;
+      transition: transform .32s, box-shadow .18s;
+      position:relative;
+      border-left:5px solid var(--primary);
     }
-    .pub-item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-    .pub-title { font-weight: 600; color: #0f172a; font-size: 1.1rem; }
-    .pub-details { font-size: 0.9rem; color: #334155; margin-top: 5px; }
-
-    /* ========= CONTACT ========= */
-    .contact-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
+    .pub-item:hover {
+      transform: translateY(-2px) scale(1.012);
+      box-shadow: 0 8px 18px rgba(30,41,59,0.17);
+      border-left:5px solid var(--accent);
     }
-    .contact-content p { font-size: 1.05rem; }
+    .pub-title { font-weight:600; color:var(--dark); font-size:1.03rem;}
+    .pub-details { font-size:.97rem; color: #475569; margin-top:5px;}
+    .dark-mode .pub-item { background:var(--card-bg-dark); color:#fff;}
+    .dark-mode .pub-title { color:var(--accent);}
+    /* Contact */
+    .contact-content { display:flex; flex-direction:column; align-items:center; gap:15px;}
+    .contact-content p { font-size:1.07rem;}
+    .social-links {
+      display: flex; justify-content:center; align-items:center; flex-wrap:wrap;
+      gap:13px; margin-top:5px;
+    }
     .social-links a {
-      margin: 0 15px;
-      color: #2563eb;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: color .3s, transform .2s;
+      color: var(--secondary);
+      background: #f1f5f9;
+      border-radius: 20px;
+      font-weight:600;
+      font-size:1.04rem;
+      padding:8px 20px;
+      display: flex;align-items:center; gap:6px;
+      text-decoration:none;
+      transition: color var(--transition), background var(--transition), transform .18s;
     }
-    .social-links a:hover { color: #0ea5e9; transform: translateY(-2px); }
-    .social-links i { margin-right: 5px; } /* Space for icons */
-
-    /* ========= FOOTER ========= */
+    .social-links a:hover { color:var(--primary); background: #e0f2fe; transform:translateY(-1px);}
+    .social-links i { font-size: 1.25rem;}
+    /* Contact Form */
+    .contact-form {
+      margin-top:24px;
+      width:100%;max-width:400px;
+      background: #f1f5f9;
+      padding:17px 18px;
+      border-radius:var(--radius);
+      box-shadow: 0 5px 12px rgba(30,41,59,0.04);
+    }
+    .contact-form input, .contact-form textarea {
+      width:100%; margin-bottom:14px; border-radius:8px; border:1px solid #cbd5e1; font-family:inherit; padding:11px;
+      font-size:1.01rem; outline:none; transition:border-color .22s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary);}
+    .contact-form button {
+      background: var(--primary); color:#fff; font-weight:650; border:none; border-radius:8px;
+      padding:10px 24px; cursor:pointer; transition:background .2s;
+    }
+    .contact-form button:hover { background: var(--secondary);}
+    /* Footer */
     footer {
-      background: #0f172a;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 0.85rem;
+      background: var(--dark);
+      color: #fff; padding:26px 0; font-size: .96rem; text-align: center;
+      box-shadow:0 4px 22px rgba(30,41,59,0.17);
     }
-
-    /* ========= RESPONSIVENESS MEDIA QUERIES (MOBILE FIRST) ========= */
-    
-    /* Desktop/Tablet Styles */
-    @media (min-width: 768px) {
-      .cards {
-        gap: 30px; /* Increase gap for larger screens */
-      }
-      section {
-        margin: 100px auto; /* Restore margin for larger screens */
-      }
-      .card {
-        padding: 30px; /* Slightly larger padding */
-      }
+    /* Responsive tweaks */
+    @media (max-width: 900px) {
+      section, .navbar { max-width:98%; width:98%; }
+      .cards { grid-template-columns:1fr 1fr;}
+      .avatar { width:40px; height:40px;}
     }
-
-    /* Mobile Menu Styles */
-    @media (max-width: 767px) {
-      .nav-links { 
-        position: absolute;
-        top: 65px; /* Adjust based on navbar height */
-        right: 0;
-        width: 100%;
-        background: #0f172a;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        transform: translateX(100%);
-        transition: transform 0.4s ease-in-out;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      }
-      .nav-links.active {
-        transform: translateX(0);
-      }
-      .nav-links li {
-        margin: 10px 0;
-      }
-      .menu-toggle {
-        display: block;
-      }
+    @media (max-width: 630px) {
+      .cards { grid-template-columns:1fr; gap:16px;}
+      .navbar { padding:2px 0;}
+      .logo { font-size:1.12rem;}
+      section { margin:49px auto;}
     }
+    @media (max-width:480px) {
+      .cards {gap:8px;}
+      .avatar {width:30px;height:30px;}
+      section h2 { font-size:1.25rem;}
+      .hero h1 { font-size:2.02rem;}
+      .navbar {padding:0;}
+      .cta-btn { display:block;}
+      .nav-links {
+        background: var(--dark);
+        flex-direction:column; align-items:center;
+        position:fixed;
+        top:var(--nav-height); left:0; width:100vw;
+        height:100vh; transition:transform .37s cubic-bezier(.34,1.55,.45,1);
+        transform:translateX(104vw); /* hide by default */
+        box-shadow:0 4px 18px rgba(0,0,0,.43);
+        font-size:1.16rem;
+        padding-top:28px;
+        z-index:999;
+      }
+      .nav-links.active { transform: translateX(0);}
+      .menu-toggle { display:block; }
+      .dark-toggle { font-size:2rem; }
+    }
+    /* Touch tap targets and focus ring */
+    a, button { outline-offset: 3px;}
+    a:active, button:active { outline:2px solid var(--primary);}
+    /* Hide scrollbars mobile aesthetic */
+    ::-webkit-scrollbar {width:7px;}
+    ::-webkit-scrollbar-thumb {background: var(--primary);}
   </style>
 </head>
-
 <body>
+  <!-- Navigation -->
   <header>
     <div class="navbar">
-      <h1 class="logo">NANDHIKAR</h1>
+      <span class="logo"><img class="avatar" src="your-avatar-url.png" alt="Nandhikar-avatar">NANDHIKAR</span>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="menu-toggle" id="menuToggle">
-        <i class="fa-solid fa-bars"></i>
-      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+      <button class="dark-toggle" id="darkToggle" aria-label="Theme toggle"><i class="fa-solid fa-moon"></i></button>
     </div>
   </header>
 
   <section class="hero">
     <h1>Hi, I'm Nandhikar 👋</h1>
-    <p>Fresher Civil Engineer (B.Tech) | Minor in AI & ML | Researching Digital Twins, SHM, and Sustainable Infrastructure</p>
-    <a href="#projects" class="btn">Explore My Work</a>
+    <p>Fresher Civil Engineer (B.Tech) | Minor in AI &amp; ML | Researching Digital Twins, SHM, and Sustainable Infrastructure</p>
+    <a href="#projects" class="cta-btn">Explore My Work</a>
   </section>
 
   <section id="about">
     <h2><i class="fa-solid fa-user-tie"></i> About Me</h2>
     <p>
-      I’m a Civil Engineer driven by curiosity for how **AI can transform traditional infrastructure systems**.
-      My passion lies in developing intelligent frameworks like **Digital Twins** and **Machine Learning** models for
+      I’m a Civil Engineer driven by curiosity for how <b>AI can transform traditional infrastructure systems</b>.
+      My passion lies in developing intelligent frameworks like <b>Digital Twins</b> and <b>Machine Learning</b> models for
       bridge health monitoring, pavement optimization, and environmental sustainability.
-      I aim to pursue a Master’s and PhD in **Computational and Civil Engineering** to continue this research path.
+      I aim to pursue a Master’s and PhD in <b>Computational and Civil Engineering</b> to continue this research path.
     </p>
   </section>
 
   <section id="projects">
     <h2><i class="fa-solid fa-list-check"></i> Highlighted Projects</h2>
     <div class="cards">
-      <div class="card">
+      <div class="card" tabindex="0">
         <div class="card-icon"><i class="fa-solid fa-bridge"></i></div>
         <h3>AI-Based Structural Health Monitoring (SHM)</h3>
-        <p>Developed **ML models** to detect bridge damage under environmental variations using open SHM datasets.
+        <p>Developed <b>ML models</b> to detect bridge damage under environmental variations using open SHM datasets.<br>
         A step toward data-driven Digital Twins for infrastructure.</p>
       </div>
-      <div class="card">
+      <div class="card" tabindex="0">
         <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
         <h3>Obesity Level Prediction Model</h3>
-        <p>Built an **XGBoost model** to predict obesity categories from human lifestyle data,
+        <p>Built an <b>XGBoost model</b> to predict obesity categories from human lifestyle data,<br>
         showcasing end-to-end model training, deployment, and UI integration.</p>
       </div>
-      <div class="card">
+      <div class="card" tabindex="0">
         <div class="card-icon"><i class="fa-solid fa-city"></i></div>
         <h3>TiO₂ Pavement Cooling Simulation</h3>
-        <p>Simulated pavement heat dynamics to quantify cooling from **TiO₂ coatings**,
+        <p>Simulated pavement heat dynamics to quantify cooling from <b>TiO₂ coatings</b>,<br>
         aligning with climate-resilient city design strategies.</p>
       </div>
-      <div class="card">
+      <div class="card" tabindex="0">
         <div class="card-icon"><i class="fa-solid fa-recycle"></i></div>
         <h3>Pusa Decomposer for Waste Management</h3>
-        <p>Analyzed **biodecomposition efficiency** in solid waste management
+        <p>Analyzed <b>biodecomposition efficiency</b> in solid waste management<br>
         using the Pusa Decomposer framework for sustainable environments.</p>
       </div>
     </div>
   </section>
 
   <section id="publications">
-    <h2><i class="fa-solid fa-scroll"></i> Research & Publications</h2>
+    <h2><i class="fa-solid fa-scroll"></i> Research &amp; Publications</h2>
     <div class="pub-list">
       <div class="pub-item">
         <div class="pub-title">AI-Enhanced Digital Twin for SHM</div>
@@ -323,40 +393,63 @@
     <h2><i class="fa-solid fa-paper-plane"></i> Get in Touch</h2>
     <div class="contact-content">
       <p>Let's collaborate or connect for research opportunities.</p>
-      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <form class="contact-form" name="contact-form">
+        <input type="text" name="name" placeholder="Your Name" minLength="2" required autocomplete="name"/>
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="email"/>
+        <textarea name="message" placeholder="Your message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
       <div class="social-links">
         <a href="https://github.com/nandhikar" target="_blank"><i class="fa-brands fa-github"></i>GitHub</a>
         <a href="https://linkedin.com/in/your-link" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
       </div>
+      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Nandhikar | Built with <i class="fa-solid fa-heart"></i> for innovation in Civil & AI Engineering</p>
+    <p>© 2025 Nandhikar | Built with <i class="fa-solid fa-heart"></i> for innovation in Civil &amp; AI Engineering</p>
   </footer>
 
+  <script src="https://unpkg.com/scrollreveal"></script>
   <script>
-    // Scroll Reveal for Animations
-    ScrollReveal().reveal('.hero',{distance:'60px',duration:1000,origin:'bottom'});
-    ScrollReveal().reveal('.card',{distance:'60px',duration:1000,origin:'bottom',interval:150});
-    ScrollReveal().reveal('.pub-item',{distance:'60px',duration:1000,origin:'bottom',interval:150});
-    ScrollReveal().reveal('#about h2, #about p, #projects h2, #publications h2, #contact h2, .contact-content', {duration: 1000, distance: '30px', origin: 'top', viewFactor: 0.2});
+    // Scroll reveal
+    ScrollReveal().reveal('.hero',{distance:'70px',duration:900,origin:'bottom'});
+    ScrollReveal().reveal('.card',{distance:'70px',duration:900,origin:'bottom',interval:110});
+    ScrollReveal().reveal('.pub-item',{distance:'70px',duration:900,origin:'bottom',interval:110});
+    ScrollReveal().reveal(
+      '#about h2,#about p,#projects h2,#publications h2,#contact h2,.contact-content',
+      {duration:900, distance:'32px', origin:'top',viewFactor:0.22}
+    );
 
-    // Mobile Menu Toggle Logic
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
+    // Mobile menu toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click",()=>navLinks.classList.toggle("active"));
+    document.querySelectorAll('.nav-links a').forEach(link=>link.addEventListener("click",()=>{
+      if(navLinks.classList.contains("active")) navLinks.classList.remove("active");
+    }));
 
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+    // Dark mode toggle
+    const darkToggle = document.getElementById("darkToggle");
+    darkToggle.addEventListener("click",()=>{
+      document.body.classList.toggle("dark-mode");
+      darkToggle.innerHTML = document.body.classList.contains("dark-mode")
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
     });
 
-    // Close menu when a link is clicked (for better mobile UX)
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (navLinks.classList.contains('active')) {
-          navLinks.classList.remove('active');
-        }
-      });
+    // Accessible keyboard nav for cards
+    document.querySelectorAll('.card').forEach(card=>card.addEventListener("keydown",e=>{
+      if(e.key==="Enter"||e.key===" ") card.click();
+    }));
+
+    // Lightweight contact form validation (client-side)
+    document.querySelector(".contact-form").addEventListener("submit",function(e){
+      if(!this.checkValidity()) return;
+      e.preventDefault();
+      alert("Thank you! Your message has been submitted 🚀");
+      this.reset();
     });
   </script>
 </body>
