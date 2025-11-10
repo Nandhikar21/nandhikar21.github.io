@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nandhikar | Civil Engineer & AI Researcher</title>
 
-  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://unpkg.com/scrollreveal"></script>
 
   <style>
@@ -17,18 +17,20 @@
       background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
       color: #0f172a;
       overflow-x: hidden;
+      line-height: 1.6; /* Improved readability */
     }
-    a { text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
 
     /* ========= NAVBAR ========= */
     header {
       position: sticky;
       top: 0;
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.95); /* Slightly darker for better contrast */
       backdrop-filter: blur(10px);
       z-index: 100;
     }
     .navbar {
+      max-width: 1200px; /* Max width for large screens */
       width: 90%;
       margin: auto;
       display: flex;
@@ -53,10 +55,18 @@
       transition: color .3s;
     }
     .nav-links a:hover { color: #38bdf8; }
+    
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
 
     /* ========= HERO ========= */
     .hero {
       height: 100vh;
+      min-height: 600px; /* Ensure a minimum height on very small screens */
       background: radial-gradient(circle at top right, #1e3a8a, #0f172a);
       color: white;
       display: flex;
@@ -67,13 +77,18 @@
       padding: 0 20px;
     }
     .hero h1 {
-      font-size: 3rem;
+      font-size: clamp(2.5rem, 6vw, 4rem); /* Responsive font size */
       background: linear-gradient(to right, #38bdf8, #67e8f9);
       -webkit-background-clip: text;
       color: transparent;
       margin-bottom: 10px;
+      line-height: 1.2;
     }
-    .hero p { max-width: 650px; font-size: 1.1rem; }
+    .hero p { 
+      max-width: 650px; 
+      font-size: clamp(1rem, 2vw, 1.15rem); /* Responsive font size */
+      padding: 0 10px;
+    }
     .btn {
       background: #38bdf8;
       padding: 12px 28px;
@@ -88,14 +103,16 @@
 
     /* ========= SECTION BASE ========= */
     section {
+      max-width: 1200px;
       width: 90%;
-      margin: 100px auto;
+      margin: 80px auto; /* Reduced margin for mobile */
       text-align: center;
+      padding: 20px 0;
     }
     section h2 {
-      font-size: 2rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive font size */
       color: #0f172a;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       position: relative;
       display: inline-block;
     }
@@ -108,12 +125,13 @@
       margin: 8px auto 0;
       border-radius: 2px;
     }
+    #about p { max-width: 800px; margin: 0 auto; padding: 0 10px; }
 
     /* ========= PROJECTS ========= */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; /* Reduced gap for mobile, will scale up */
       margin-top: 40px;
     }
     .card {
@@ -123,14 +141,19 @@
       backdrop-filter: blur(10px);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       transition: all .4s ease;
+      text-align: left; /* Align card content left */
     }
     .card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-8px); /* Slightly reduced lift */
       background: rgba(255, 255, 255, 0.3);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     }
-    .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
-    .card h3 { color: #0f172a; margin-bottom: 10px; }
+    .card-icon { 
+      font-size: 2.2rem; 
+      margin-bottom: 15px; 
+      color: #1e3a8a; /* Color the icon */
+    }
+    .card h3 { color: #0f172a; margin-bottom: 8px; font-size: 1.15rem; }
 
     /* ========= PUBLICATIONS ========= */
     .pub-list {
@@ -142,22 +165,31 @@
       background: white;
       padding: 20px;
       border-radius: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 15px; /* Reduced margin */
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       transition: all .3s ease;
     }
-    .pub-item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-    .pub-title { font-weight: 600; color: #0f172a; }
-    .pub-details { font-size: 0.95rem; color: #334155; }
+    .pub-item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .pub-title { font-weight: 600; color: #0f172a; font-size: 1.1rem; }
+    .pub-details { font-size: 0.9rem; color: #334155; margin-top: 5px; }
 
     /* ========= CONTACT ========= */
+    .contact-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .contact-content p { font-size: 1.05rem; }
     .social-links a {
-      margin: 0 10px;
+      margin: 0 15px;
       color: #2563eb;
       font-weight: 600;
-      transition: color .3s;
+      font-size: 1.1rem;
+      transition: color .3s, transform .2s;
     }
-    .social-links a:hover { color: #0ea5e9; }
+    .social-links a:hover { color: #0ea5e9; transform: translateY(-2px); }
+    .social-links i { margin-right: 5px; } /* Space for icons */
 
     /* ========= FOOTER ========= */
     footer {
@@ -165,83 +197,116 @@
       color: white;
       text-align: center;
       padding: 20px 0;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
-    /* ========= RESPONSIVE ========= */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hero h1 { font-size: 2.2rem; }
+    /* ========= RESPONSIVENESS MEDIA QUERIES (MOBILE FIRST) ========= */
+    
+    /* Desktop/Tablet Styles */
+    @media (min-width: 768px) {
+      .cards {
+        gap: 30px; /* Increase gap for larger screens */
+      }
+      section {
+        margin: 100px auto; /* Restore margin for larger screens */
+      }
+      .card {
+        padding: 30px; /* Slightly larger padding */
+      }
+    }
+
+    /* Mobile Menu Styles */
+    @media (max-width: 767px) {
+      .nav-links { 
+        position: absolute;
+        top: 65px; /* Adjust based on navbar height */
+        right: 0;
+        width: 100%;
+        background: #0f172a;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      }
+      .nav-links.active {
+        transform: translateX(0);
+      }
+      .nav-links li {
+        margin: 10px 0;
+      }
+      .menu-toggle {
+        display: block;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- ===== NAVBAR ===== -->
   <header>
     <div class="navbar">
       <h1 class="logo">NANDHIKAR</h1>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
   <section class="hero">
     <h1>Hi, I'm Nandhikar 👋</h1>
     <p>Fresher Civil Engineer (B.Tech) | Minor in AI & ML | Researching Digital Twins, SHM, and Sustainable Infrastructure</p>
     <a href="#projects" class="btn">Explore My Work</a>
   </section>
 
-  <!-- ===== ABOUT ===== -->
   <section id="about">
-    <h2>About Me</h2>
+    <h2><i class="fa-solid fa-user-tie"></i> About Me</h2>
     <p>
-      I’m a Civil Engineer driven by curiosity for how AI can transform traditional infrastructure systems.  
-      My passion lies in developing intelligent frameworks like Digital Twins and Machine Learning models for  
-      bridge health monitoring, pavement optimization, and environmental sustainability.  
+      I’m a Civil Engineer driven by curiosity for how **AI can transform traditional infrastructure systems**.
+      My passion lies in developing intelligent frameworks like **Digital Twins** and **Machine Learning** models for
+      bridge health monitoring, pavement optimization, and environmental sustainability.
       I aim to pursue a Master’s and PhD in **Computational and Civil Engineering** to continue this research path.
     </p>
   </section>
 
-  <!-- ===== PROJECTS ===== -->
   <section id="projects">
-    <h2>Highlighted Projects</h2>
+    <h2><i class="fa-solid fa-list-check"></i> Highlighted Projects</h2>
     <div class="cards">
       <div class="card">
-        <div class="card-icon">🏗️</div>
-        <h3>AI-Based Structural Health Monitoring</h3>
-        <p>Developed ML models to detect bridge damage under environmental variations using open SHM datasets.  
+        <div class="card-icon"><i class="fa-solid fa-bridge"></i></div>
+        <h3>AI-Based Structural Health Monitoring (SHM)</h3>
+        <p>Developed **ML models** to detect bridge damage under environmental variations using open SHM datasets.
         A step toward data-driven Digital Twins for infrastructure.</p>
       </div>
       <div class="card">
-        <div class="card-icon">⚙️</div>
-        <h3>Obesity Level Prediction</h3>
-        <p>Built an XGBoost model to predict obesity categories from human lifestyle data,  
+        <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+        <h3>Obesity Level Prediction Model</h3>
+        <p>Built an **XGBoost model** to predict obesity categories from human lifestyle data,
         showcasing end-to-end model training, deployment, and UI integration.</p>
       </div>
       <div class="card">
-        <div class="card-icon">🌇</div>
-        <h3>TiO₂ Pavement Cooling Study</h3>
-        <p>Simulated pavement heat dynamics to quantify cooling from TiO₂ coatings,  
+        <div class="card-icon"><i class="fa-solid fa-city"></i></div>
+        <h3>TiO₂ Pavement Cooling Simulation</h3>
+        <p>Simulated pavement heat dynamics to quantify cooling from **TiO₂ coatings**,
         aligning with climate-resilient city design strategies.</p>
       </div>
       <div class="card">
-        <div class="card-icon">🌱</div>
+        <div class="card-icon"><i class="fa-solid fa-recycle"></i></div>
         <h3>Pusa Decomposer for Waste Management</h3>
-        <p>Analyzed biodecomposition efficiency in solid waste management  
+        <p>Analyzed **biodecomposition efficiency** in solid waste management
         using the Pusa Decomposer framework for sustainable environments.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== PUBLICATIONS ===== -->
   <section id="publications">
-    <h2>Research & Publications</h2>
+    <h2><i class="fa-solid fa-scroll"></i> Research & Publications</h2>
     <div class="pub-list">
       <div class="pub-item">
         <div class="pub-title">AI-Enhanced Digital Twin for SHM</div>
@@ -254,27 +319,45 @@
     </div>
   </section>
 
-  <!-- ===== CONTACT ===== -->
   <section id="contact">
-    <h2>Get in Touch</h2>
-    <p>Let's collaborate or connect for research opportunities.</p>
-    <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-    <div class="social-links">
-      <a href="https://github.com/nandhikar" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/your-link" target="_blank">LinkedIn</a>
+    <h2><i class="fa-solid fa-paper-plane"></i> Get in Touch</h2>
+    <div class="contact-content">
+      <p>Let's collaborate or connect for research opportunities.</p>
+      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <div class="social-links">
+        <a href="https://github.com/nandhikar" target="_blank"><i class="fa-brands fa-github"></i>GitHub</a>
+        <a href="https://linkedin.com/in/your-link" target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+      </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 Nandhikar | Built with ❤️ for innovation in Civil & AI Engineering</p>
+    <p>© 2025 Nandhikar | Built with <i class="fa-solid fa-heart"></i> for innovation in Civil & AI Engineering</p>
   </footer>
 
-  <!-- ===== ANIMATIONS ===== -->
   <script>
+    // Scroll Reveal for Animations
     ScrollReveal().reveal('.hero',{distance:'60px',duration:1000,origin:'bottom'});
     ScrollReveal().reveal('.card',{distance:'60px',duration:1000,origin:'bottom',interval:150});
     ScrollReveal().reveal('.pub-item',{distance:'60px',duration:1000,origin:'bottom',interval:150});
+    ScrollReveal().reveal('#about h2, #about p, #projects h2, #publications h2, #contact h2, .contact-content', {duration: 1000, distance: '30px', origin: 'top', viewFactor: 0.2});
+
+    // Mobile Menu Toggle Logic
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked (for better mobile UX)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+        }
+      });
+    });
   </script>
 </body>
 </html>
