@@ -3,94 +3,261 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nandhikar | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Nandhikar | Civil Engineer & AI Researcher</title>
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/scrollreveal"></script>
+
+  <style>
+    /* ========= BASE STYLES ========= */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; }
+
+    /* ========= NAVBAR ========= */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+    .navbar {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      color: white;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: white;
+      font-weight: 500;
+      transition: color .3s;
+    }
+    .nav-links a:hover { color: #38bdf8; }
+
+    /* ========= HERO ========= */
+    .hero {
+      height: 100vh;
+      background: radial-gradient(circle at top right, #1e3a8a, #0f172a);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(to right, #38bdf8, #67e8f9);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 10px;
+    }
+    .hero p { max-width: 650px; font-size: 1.1rem; }
+    .btn {
+      background: #38bdf8;
+      padding: 12px 28px;
+      color: white;
+      border-radius: 30px;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 25px;
+      transition: all .3s;
+    }
+    .btn:hover { background: #0ea5e9; transform: scale(1.05); }
+
+    /* ========= SECTION BASE ========= */
+    section {
+      width: 90%;
+      margin: 100px auto;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2rem;
+      color: #0f172a;
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+    }
+    section h2::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: #38bdf8;
+      display: block;
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ========= PROJECTS ========= */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 25px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      transition: all .4s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    }
+    .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
+    .card h3 { color: #0f172a; margin-bottom: 10px; }
+
+    /* ========= PUBLICATIONS ========= */
+    .pub-list {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .pub-item {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: all .3s ease;
+    }
+    .pub-item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .pub-title { font-weight: 600; color: #0f172a; }
+    .pub-details { font-size: 0.95rem; color: #334155; }
+
+    /* ========= CONTACT ========= */
+    .social-links a {
+      margin: 0 10px;
+      color: #2563eb;
+      font-weight: 600;
+      transition: color .3s;
+    }
+    .social-links a:hover { color: #0ea5e9; }
+
+    /* ========= FOOTER ========= */
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+    }
+
+    /* ========= RESPONSIVE ========= */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="nav-container">
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <div class="navbar">
       <h1 class="logo">NANDHIKAR</h1>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h2>Hi, I'm <span class="highlight">Nandhikar</span> 👋</h2>
-      <p>Fresher Civil Engineer | AIML Minor | Researching Digital Twins & Sustainable Infrastructure</p>
-      <a href="#projects" class="btn">Explore My Work</a>
-    </div>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Hi, I'm Nandhikar 👋</h1>
+    <p>Fresher Civil Engineer (B.Tech) | Minor in AI & ML | Researching Digital Twins, SHM, and Sustainable Infrastructure</p>
+    <a href="#projects" class="btn">Explore My Work</a>
   </section>
 
-  <!-- About -->
-  <section id="about" class="section about">
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
     <h2>About Me</h2>
     <p>
-      I’m a Civil Engineer passionate about applying AI in Civil and Structural Engineering to create smart, sustainable infrastructure. 
-      My research integrates Digital Twins, Machine Learning, and Structural Health Monitoring (SHM) for real-world applications.
+      I’m a Civil Engineer driven by curiosity for how AI can transform traditional infrastructure systems.  
+      My passion lies in developing intelligent frameworks like Digital Twins and Machine Learning models for  
+      bridge health monitoring, pavement optimization, and environmental sustainability.  
+      I aim to pursue a Master’s and PhD in **Computational and Civil Engineering** to continue this research path.
     </p>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="section projects">
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
     <h2>Highlighted Projects</h2>
     <div class="cards">
       <div class="card">
         <div class="card-icon">🏗️</div>
         <h3>AI-Based Structural Health Monitoring</h3>
-        <p>Developed ML models to detect bridge damage under environmental variations using sensor datasets.</p>
+        <p>Developed ML models to detect bridge damage under environmental variations using open SHM datasets.  
+        A step toward data-driven Digital Twins for infrastructure.</p>
       </div>
-
       <div class="card">
         <div class="card-icon">⚙️</div>
         <h3>Obesity Level Prediction</h3>
-        <p>Created an XGBoost model predicting obesity levels based on lifestyle data; deployed via Flask web app.</p>
+        <p>Built an XGBoost model to predict obesity categories from human lifestyle data,  
+        showcasing end-to-end model training, deployment, and UI integration.</p>
       </div>
-
       <div class="card">
         <div class="card-icon">🌇</div>
         <h3>TiO₂ Pavement Cooling Study</h3>
-        <p>Modeled temperature reduction effects of TiO₂-coated pavements to mitigate urban heat islands.</p>
+        <p>Simulated pavement heat dynamics to quantify cooling from TiO₂ coatings,  
+        aligning with climate-resilient city design strategies.</p>
       </div>
-
       <div class="card">
         <div class="card-icon">🌱</div>
         <h3>Pusa Decomposer for Waste Management</h3>
-        <p>Studied bio-decomposition processes using Pusa Decomposer for sustainable solid waste management.</p>
+        <p>Analyzed biodecomposition efficiency in solid waste management  
+        using the Pusa Decomposer framework for sustainable environments.</p>
       </div>
     </div>
   </section>
 
-  <!-- Research -->
-  <section id="research" class="section research">
+  <!-- ===== PUBLICATIONS ===== -->
+  <section id="publications">
     <h2>Research & Publications</h2>
-    <div class="research-grid">
-      <div class="research-card">
-        <h3>AI-Enhanced Digital Twin for SHM</h3>
-        <p>Exploring hybrid ML–physics models to predict and monitor structural health under environmental changes.</p>
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-title">AI-Enhanced Digital Twin for SHM</div>
+        <div class="pub-details">Exploring hybrid ML–physics models for structural monitoring. Target: Springer Journal on Structural Engineering (2025).</div>
       </div>
-      <div class="research-card">
-        <h3>Sustainable Pavement Materials</h3>
-        <p>Investigating eco-friendly pavement coatings and bio-based materials for climate-resilient infrastructure.</p>
+      <div class="pub-item">
+        <div class="pub-title">Sustainable Pavement Materials Using TiO₂ and Bio-Ash</div>
+        <div class="pub-details">Investigating eco-friendly pavement composites and heat mitigation strategies for urban sustainability.</div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section contact">
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
     <h2>Get in Touch</h2>
+    <p>Let's collaborate or connect for research opportunities.</p>
     <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
     <div class="social-links">
       <a href="https://github.com/nandhikar" target="_blank">GitHub</a>
@@ -98,13 +265,16 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 Nandhikar</p>
+    <p>© 2025 Nandhikar | Built with ❤️ for innovation in Civil & AI Engineering</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- ===== ANIMATIONS ===== -->
+  <script>
+    ScrollReveal().reveal('.hero',{distance:'60px',duration:1000,origin:'bottom'});
+    ScrollReveal().reveal('.card',{distance:'60px',duration:1000,origin:'bottom',interval:150});
+    ScrollReveal().reveal('.pub-item',{distance:'60px',duration:1000,origin:'bottom',interval:150});
+  </script>
 </body>
 </html>
-
-
